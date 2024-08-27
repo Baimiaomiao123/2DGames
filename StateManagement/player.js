@@ -32,7 +32,6 @@ export default class Player {
 
         this.frameX = 0;
         this.frameY = 0;
-
         this.maxFrame = 6;
 
         this.speed = 0;
