@@ -5,7 +5,7 @@ export class InputHandler {
 
         window.addEventListener('keydown', (e) => {
             // Check if the pressed key is an arrow key or the Enter key
-            if (['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(e.key) && this.keys.indexOf(e.key) === -1) {
+            if (['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', ' '].includes(e.key) && this.keys.indexOf(e.key) === -1) {
                 this.keys.push(e.key);
             }
 
@@ -14,7 +14,7 @@ export class InputHandler {
                 this.game.debug = !this.game.debug;
             }
 
-            // 处理 Enter 键按下的逻辑
+            // Handle the logic for pressing the Enter key
             else if (e.key === 'Enter') {
                 // If the game is over, pressing the Enter key will reset the game.
                 if (this.game.gameOver) {
@@ -25,7 +25,7 @@ export class InputHandler {
 
         window.addEventListener('keyup', (e) => {
             // Remove the arrow keys or Enter key from the keys array when they are released.
-            if (['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Enter'].includes(e.key)) {
+            if (['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', ' '].includes(e.key)) {
                 this.keys.splice(this.keys.indexOf(e.key), 1);
             }
         });
