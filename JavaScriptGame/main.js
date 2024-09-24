@@ -107,6 +107,42 @@ window.addEventListener('load', () => {
             });
             this.UI.draw(context);
         }
+        //reset the game
+        reset() {
+            console.log("Game is resetting...");
+            this.groundMargin = 85;
+            this.speed = 0;
+            this.maxSpeed = 5;
+
+            this.background = new Background(this);
+            this.player = new Player(this);
+            this.input = new InputHandler(this);
+            this.particles = [];
+            this.maxParticles = 50;
+
+            this.collisions = [];
+            this.floatingMessages = [];
+
+            this.enemies = [];
+            this.enemyTimer = 0;
+            this.enemyInterval = 1000;
+
+            this.debug = false;
+
+            this.score = 0;
+            this.winningScore = 40;
+            this.fontColor = 'black';
+            this.UI = new UI(this);
+            this.time = 0;
+            this.maxTime = 30000;
+            this.gameOver = false;
+            this.lives = 5;
+
+            this.player.currentState = this.player.states[0]; // Reset to initial state
+            this.player.currentState.enter();
+
+            requestAnimationFrame(animate)
+        }
         addEnemy(){
             if (this.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));
             else if (this.speed > 0) this.enemies.push(new ClimbingEnemy(this))

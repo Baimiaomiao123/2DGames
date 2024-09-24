@@ -35,6 +35,7 @@ export class UI {
                 context.fillText('Love at first bite?', this.game.width / 2, this.game.height / 2 - 20);
                 context.font = this.fontSize * 0.8+ 'px ' + this.fontFamily;
                 context.fillText('Nope. Better luck next time!', this.game.width / 2, this.game.height / 2 + 20);
+                context.fillText('If you wanna try more, please pressing the Enter to reset the game!', this.game.width / 2, this.game.height / 2 + 60);
             }
         }
         context.restore();
